@@ -18,6 +18,8 @@
 * Requires WP:     4.7
 * Requires PHP:    5.5
 */
+
+
 /*
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
@@ -33,3 +35,9 @@
 */
 
 namespace RoxyCruzWebDesign\CollapsibleContent;
+
+if ( ! defined( 'ABSPATH' ) ) {
+  die ( "Nothing to see here." );
+}
+
+include( __DIR__ . '/src/shortcode/shortcodes.php' );
