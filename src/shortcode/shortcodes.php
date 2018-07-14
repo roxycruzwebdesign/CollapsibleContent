@@ -10,9 +10,6 @@
 */
 namespace RoxyCruzWebDesign\CollapsibleContent\Shortcode;
 
-// [qa question="What question would you like to ask me?" show_icon="" hide_icon=""]this is the answer[/qa]
-
-
 add_shortcode( 'qa', __NAMESPACE__ . '\process_the_shortcode' );
 add_shortcode( 'teaser', __NAMESPACE__ . '\process_the_shortcode' );
 
@@ -38,15 +35,12 @@ function process_the_shortcode( $user_defined_attributes, $hidden_content, $shor
 	);
 
 	// do the processing
-  $attributes['show_icon'] = esc_attr_e( $attributes['show_icon'] );
+  $attributes['show_icon'] = esc_attr( $attributes['show_icon'] );
   
   if ( $hidden_content ) {
     $hidden_content = do_shortcode( $hidden_content );
   }
   
-  
-  
-
 	// Call the view file, capture it into the output buffer, and then return it.
 	ob_start();
 	include( $config['view'] );
@@ -67,8 +61,8 @@ function get_shortcode_configuration( $shortcode_name ) {
   $config = array(
     'view' => __DIR__ . '/views/' . $shortcode_name . '.php',
     'defaults'  => array(
-      'show_icon' => 'dashicons-arrow-up-alt2',
-      'hide_icon' => 'dashicons-arrow-up-alt2',
+      'show_icon' => 'dashicons dashicons-arrow-down-alt2',
+      'hide_icon' => 'dashicons dashicons-arrow-up-alt2',
     ),
   );
   
@@ -80,7 +74,4 @@ function get_shortcode_configuration( $shortcode_name ) {
   }
   
   return $config;
-  
 }
-
-
