@@ -12,7 +12,7 @@ namespace RoxyCruzWebDesign\CollapsibleContent;
 
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 /**
- * Enqueuethe plugin assets (scripts and styles)
+ * Enqueue the plugin assets (scripts and styles)
  *
  * @since 1.0.0
  *
