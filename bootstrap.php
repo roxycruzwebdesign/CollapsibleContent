@@ -11,7 +11,7 @@
 * Plugin Name:  Collapsible Content
 * Plugin URI:   https://github.com/roxycruzwebdesign/CollapsibleContent
 * Description:  Collapsible Content is a WordPress Plugin that shows and hides content.
-* Version:      1.0.0
+* Version:      1.3.0
 * Author:       Roxy Cruz
 * Author URI:   https://roxycruzwebdesign.com
 * Text Domain:  collapsible_content
@@ -36,12 +36,14 @@
 
 namespace RoxyCruzWebDesign\CollapsibleContent;
 
+use RoxyCruzWebDesign\Module\Custom as CustomModule;
+
 if ( ! defined( 'ABSPATH' ) ) {
   die ( "Nothing to see here." );
 }
 
 define( 'COLLAPSIBLE_CONTENT_PLUGIN', __FILE__ );
-define( 'COLLAPSIBLE_CONTENT_DIR', plugin_dir_path( __FILE__ ) );
+define( 'COLLAPSIBLE_CONTENT_DIR', trailingslashit( __DIR__ ) );
 $plugin_url = plugin_dir_url( __FILE__ );
 if ( is_ssl() ) {
 	$plugin_url = str_replace( 'http://', 'https://', $plugin_url );
@@ -50,3 +52,5 @@ define( 'COLLAPSIBLE_CONTENT_URL', $plugin_url );
 define( 'COLLAPSIBLE_CONTENT_TEXT_DOMAIN', 'collapsible_content' );
 
 include( __DIR__ . '/src/plugin.php' );
+
+CustomModule\register_plugin( __FILE__ );
